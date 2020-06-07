@@ -21,7 +21,7 @@ export default class MailTo extends React.Component {
                     <Modal.Body>
                         {/* <Button>Gmail</Button>
                         <Button>Yahoo</Button> */}
-                        <Button href={this.props.link}>Device Email App</Button>
+                        <Button href={this.props.link}>Open Email</Button>
                     </Modal.Body>
                 </Modal>
             </>

@@ -1,6 +1,7 @@
 import React from "react"
 import "./layout.css"
 import { Modal, Button, Form, Overlay, Tooltip } from "react-bootstrap"
+import { ReactMultiEmail, isEmail } from 'react-multi-email'
 import CopyToClipboard from "react-copy-to-clipboard"
 
 export default class SuccessModal extends React.Component {
@@ -29,7 +30,7 @@ export default class SuccessModal extends React.Component {
                     <Modal.Title>Successfully Posted Campaign</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                    Below is the link to your campaign. Please copy this link and save it, you will not have access to it again form this site.
+                    Below is the link to your campaign. Please copy this link and save it, you will not have access to it again from this site.
                     </Modal.Body>
                     <Modal.Body>
                         <CopyToClipboard text={this.props.data.link} onCopy={this.copyToClipboard}>

@@ -2,6 +2,7 @@ import React from "react"
 import { Link, navigate } from "gatsby"
 
 import { Form, Button } from "react-bootstrap"
+import { ReactMultiEmail, isEmail } from 'react-multi-email'
 import Layout from "../components/layout"
 import SuccessModal from "../components/success-modal"
 import SEO from "../components/seo"
@@ -14,7 +15,7 @@ export default class SecondPage extends React.Component {
     this.show = false
     this.data = new Map()
     this.state = {
-      emails: "",
+      emails: [],
       identifier: "",
       subject: "",
       content: "",

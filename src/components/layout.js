@@ -35,6 +35,8 @@ const Layout = ({ children }) => {
       >
         <main>{children}</main>
         <footer>
+        <br></br>
+        <p>We do not keep any personal information, this is an open source project. Please use this application at your own risk, we take no responsibility with how you use this.</p>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>

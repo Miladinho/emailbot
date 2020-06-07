@@ -2,7 +2,7 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: `Community Templates To Write Your Representatives`,
+    title: `Create Links That Prefills A New Email With Your Message To Your Representatives`,
     description: `This is a prototype application to allow for you to easily write email campagins for your elected representatives in the U.S. House Congress and U.S. Senate. We do not intend to keep any personal information everything is intended to be public and transparent. Please use this application at your own risk, we take no responsibility with how you use this.`,
     author: `@gatsbyjs`,
   },

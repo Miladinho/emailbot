@@ -1,7 +1,9 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Community Templates To Write Your Representatives`,
+    description: `This is a prototype application to allow for you to easily write email campagins for your elected representatives in the U.S. House Congress and U.S. Senate. We do not intend to keep any personal information everything is intended to be public and transparent. Please use this application at your own risk, we take no responsibility with how you use this.`,
     author: `@gatsbyjs`,
   },
   plugins: [
@@ -27,6 +29,20 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: "gatsby-plugin-firebase",
+      options: {
+        credentials: {
+          apiKey: process.env.FIREBASE_API_KEY || "",
+          authDomain: process.env.YOUR_FIREBASE_AUTH_DOMAIN || "",
+          databaseURL: process.env.FIREBASE_DATABASE_URL,
+          projectId: process.env.FIREBASE_PROJECT_ID || "",
+          storageBucket: process.env.FIREBASE_STORAGE_BUCKET || "",
+          messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID || "",
+          appId: process.env.YOUR_FIREBASE_APP_ID || ""
+        }
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

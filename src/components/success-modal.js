@@ -1,7 +1,6 @@
 import React from "react"
 import "./layout.css"
 import { Modal, Button, Form, Overlay, Tooltip } from "react-bootstrap"
-import { ReactMultiEmail, isEmail } from 'react-multi-email'
 import CopyToClipboard from "react-copy-to-clipboard"
 
 export default class SuccessModal extends React.Component {

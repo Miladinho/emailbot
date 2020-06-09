@@ -2,12 +2,12 @@ import React from "react"
 import { Link, navigate } from "gatsby"
 
 import { Form, Button } from "react-bootstrap"
-import { ReactMultiEmail, isEmail } from 'react-multi-email'
 import Layout from "../components/layout"
 import SuccessModal from "../components/success-modal"
 import SEO from "../components/seo"
 import firebase from "gatsby-plugin-firebase"
 import uniqid from "uniqid"
+const { getMailtoLink } = require("../usecases/EmailLinkCreator")
 
 export default class SecondPage extends React.Component {
   constructor(props) {
@@ -46,17 +46,11 @@ export default class SecondPage extends React.Component {
 
   showModal = () => this.setState({show: true})
   
-  getMailToFormat = () => {
-    let subject = this.state.subject.split(" ").join("%20")
-    let body = this.state.content.split("\n").join("%0D%0A").split(" ").join("%20")
-    return `mailto:${this.state.emails}?subject=${subject}&body=${body}`
-  }
-  
   handleSubmit = event => {
     event.preventDefault()
 
     const id = uniqid.time()
-    this.data.set("mailto", this.getMailToFormat())
+    this.data.set("mailto", getMailtoLink(this.state.emails, this.state.subject, this.state.content))
     this.data.set("identifier", id)
     this.data.set("link", `georgefloyd.help/?id=${id}`)
     this.data.set("timestamp", (new Date()).getTime())

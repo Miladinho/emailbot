@@ -43,7 +43,9 @@ export default class SecondPage extends React.Component {
     this.setState({show: false})
     navigate("/")
   }
+
   showModal = () => this.setState({show: true})
+  
   getMailToFormat = () => {
     let subject = this.state.subject.split(" ").join("%20")
     let body = this.state.content.split("\n").join("%0D%0A").split(" ").join("%20")
@@ -89,7 +91,7 @@ export default class SecondPage extends React.Component {
             <Form.Label>Your message here...</Form.Label>
             <Form.Control name="content" as="textarea" rows="10" placeholder="To Whom it May Concern ..." onChange={this.handleInputChange} required/>
           </Form.Group>
-          <Button variant="primary" type="submit" style={{background: `rebeccapurple`, color: `white`}}>Submit</Button>
+          <Button variant="primary" type="submit" style={{background: `rebeccapurple`, color: `white`}}>Create</Button>
         </Form>
         <Link to="/">Go back to the homepage</Link>
       </Layout>

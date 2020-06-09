@@ -1,19 +1,20 @@
 'use strict;'
 
 const assert = require('assert')
-const { getMailto } = require('./EmailLinkCreator')
+const { getMailtoLink } = require('./EmailLinkCreator')
 
 describe('Email Link Creator Tests', () => {
     const subject = 'An email subject'
     const body = 'This is a message'
 
-    context('Get Plain MailTo Link', () => {
+    context('Get Plain Mailto Link', () => {
         it('should make valid link for 1 recepient', () => {
             const recepient = "someone@email.com"
             const expectedResult = 
                 "mailto:"+recepient+"?subject="+subject+"&body="+body
             assert.equal(
-                getMailto(recepient, subject, body),
+                getMailtoLink
+            (recepient, subject, body),
                 expectedResult
             )
         })
@@ -22,7 +23,8 @@ describe('Email Link Creator Tests', () => {
             const expectedResult = 
                 `mailto:${recepients[0]},${recepients[1]}?subject=${subject}&body=${body}`
             assert.equal(
-                getMailto(recepients, subject, body),
+                getMailtoLink
+            (recepients, subject, body),
                 expectedResult
             )
         })
@@ -32,7 +34,8 @@ describe('Email Link Creator Tests', () => {
             const expectedResult = 
                 `mailto:${recepients[0]},${recepients[1]}?subject=${subject}&body=hello%0D%0Athis is a%0D%0Amessage`
             assert.equal(
-                getMailto(recepients, subject, body),
+                getMailtoLink
+            (recepients, subject, body),
                 expectedResult
             )
         })

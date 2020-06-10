@@ -46,13 +46,4 @@ const IndexPage = (props) => {
   )
 }
 
-// getGmailFormat = () => {
-//   const gmailBase = "https://mail.google.com/mail/u/0/?view=cm&fs=1&to"
-//   const gmailSubject = "su"
-//   const gmailBody = "body"
-//   return `${gmailBase}=${this.data.emails}
-//     &${gmailSubject}=${this.data.subject}
-//     &${gmailBody}=${this.data.body}`
-// }
-
 export default IndexPage

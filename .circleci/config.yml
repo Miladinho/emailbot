@@ -17,6 +17,6 @@ workflows:
         - build-and-test
 deployment:
   production:
-    branch: prod
+    branch: mg-add-ci
     commands:
       - surge --project ../public --domain georgefloyd.help

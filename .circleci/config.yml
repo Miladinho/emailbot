@@ -15,3 +15,8 @@ workflows:
     build-and-test:
       jobs:
         - build-and-test
+deployment:
+  production:
+    branch: prod
+    commands:
+      - surge --project ../public --domain georgefloyd.help

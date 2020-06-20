@@ -28,7 +28,8 @@
   },
   "devDependencies": {
     "mocha": "^7.2.0",
-    "prettier": "2.0.5"
+    "prettier": "2.0.5",
+    "surge": "^0.21.3"
   },
   "keywords": [
     "gatsby"

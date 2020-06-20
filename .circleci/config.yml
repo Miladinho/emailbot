@@ -11,12 +11,18 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
+  deploy-to-web:
+    executor:
+      name: node/default
+    steps:
+      -run: surge --project ../public --domain georgefloyd.help
 workflows:
     build-and-test:
       jobs:
         - build-and-test
-deployment:
-  production:
-    branch: mg-add-ci
-    commands:
-      - surge --project ../public --domain georgefloyd.help
+        - deploy-to-web:
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only: mg-add-ci

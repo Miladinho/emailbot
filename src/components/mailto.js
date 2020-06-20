@@ -1,8 +1,16 @@
 import React from "react"
-import Layout from "../components/layout"
 import { Button, Modal } from "react-bootstrap"
+const { getMailtoLink } = require("../usecases/EmailLinkCreator")
 
 export default class MailTo extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            mailtoLink: getMailtoLink(props.recepients, props.subject, props.body),
+        }
+        console.log('data under..', props)
+        console.log(getMailtoLink(props.recepients, props.subject, props.body))
+    }
 
     render() {
         return (
@@ -19,8 +27,8 @@ export default class MailTo extends React.Component {
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        {/* <Button>Gmail</Button>
-                        <Button>Yahoo</Button> */}
+                        <Button>Gmail</Button>
+                        {/* <Button>Yahoo</Button> */}
                         <Button href={this.props.link}>Open Email</Button>
                     </Modal.Body>
                 </Modal>

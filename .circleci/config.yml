@@ -18,7 +18,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm build
-      - run: surge --project ../public --domain georgefloyd.help
+      - run: npx surge --project ./public --domain georgefloyd.help
 workflows:
     build-and-test:
       jobs:

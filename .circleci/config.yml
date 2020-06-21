@@ -15,7 +15,10 @@ jobs:
     executor:
       name: node/default
     steps:
-      -run: surge --project ../public --domain georgefloyd.help
+      - checkout
+      - node/with-cache:
+        steps:
+          -run: surge --project ../public --domain georgefloyd.help
 workflows:
     build-and-test:
       jobs:

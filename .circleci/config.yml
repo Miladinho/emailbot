@@ -15,10 +15,8 @@ jobs:
     executor:
       name: node/default
     steps:
-      - checkout
-      - node/with-cache:
-        steps:
-          - run: "surge --project ../public --domain georgefloyd.help"
+      - run: npm install
+      - run: surge --project ../public --domain georgefloyd.help
 workflows:
     build-and-test:
       jobs:
@@ -26,7 +24,10 @@ workflows:
       
     deploy-to-web:
       jobs:
+        - build-and-test
         - deploy-to-web:
+            requires:
+              - build-and-test
             filters:
               branches:
                 only: mg-add-ci

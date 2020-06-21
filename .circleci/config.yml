@@ -15,6 +15,7 @@ jobs:
     executor:
       name: node/default
     steps:
+      - checkout
       - run: npm install
       - run: surge --project ../public --domain georgefloyd.help
 workflows:

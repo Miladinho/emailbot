@@ -24,7 +24,10 @@ workflows:
     build-and-test:
       jobs:
         - build-and-test
+      
+    deploy-to-web:
+      jobs:
         - deploy-to-web:
-          filters:
-            branches:
-              only: mg-add-ci
+            filters:
+              branches:
+                only: mg-add-ci

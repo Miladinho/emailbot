@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
 jobs:
-  build-and-test:
+  test:
     executor:
       name: node/default
     steps:
@@ -11,7 +11,22 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
+  deploy-to-web:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run build
+      - run: npx surge --project ./public --domain ${DOMAIN_NAME}
 workflows:
-    build-and-test:
+    test:
       jobs:
-        - build-and-test
+        - test
+      
+    deploy-to-web:
+      jobs:
+        - deploy-to-web:
+            filters:
+              branches:
+                only: prod

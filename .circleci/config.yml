@@ -32,4 +32,4 @@ workflows:
               - build-and-test
             filters:
               branches:
-                only: mg-add-ci
+                only: prod

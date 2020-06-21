@@ -34,7 +34,7 @@ const IndexPage = (props) => {
     <Layout>
       <SEO title="Home" />
       <MailTo show={showMailTo} link={link}></MailTo>
-      <h1>About Test</h1>
+      <h1>About</h1>
       <p>In honor of the late George Floyd, this is a prototype application to allow for you to easily write email campagins for your elected representatives. We will give you a link that when clicked will open the email client with your prefilled campaign email. You can share this link with friends so they can easily just click and send on their behalf.</p>
       <p>Click on the "Create" button below to begin a new campaign. Click on the "Search" button to find a campaign </p>
       <Button variant="primary" size="lg" style={{background: `rebeccapurple`, color: `white`}} onClick={ event => {

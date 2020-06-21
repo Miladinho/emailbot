@@ -18,8 +18,7 @@ jobs:
       - checkout
       - node/with-cache:
         steps:
-          - run: 
-            command: surge --project ../public --domain georgefloyd.help
+          - run: "surge --project ../public --domain georgefloyd.help"
 workflows:
     build-and-test:
       jobs:
